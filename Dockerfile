@@ -22,7 +22,7 @@
     FROM python:3-alpine AS flask
     WORKDIR /build
 
-    COPY owdex/requirements.txt .
+    COPY hzine/requirements.txt .
     RUN pip install --no-cache-dir -r requirements.txt
 
     COPY --from=css_minify /build.min.css src/static/build.css
