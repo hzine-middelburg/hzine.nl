@@ -6,7 +6,7 @@ After=network.target
 User=hzine
 WorkingDirectory=/srv/hzine
 Environment=PORT=8080
-ExecStart=.venv/bin/python -m hzine
+ExecStart=/srv/hzine/.venv/bin/python -m hzine
 Restart=always
 
 [Install]
