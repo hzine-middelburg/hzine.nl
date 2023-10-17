@@ -1,0 +1,13 @@
+[Unit]
+Description=HZine website
+After=network.target
+
+[Service]
+User=hzine
+WorkingDirectory=/srv/hzine
+Environment=PORT=8080
+ExecStart=.venv/bin/python -m hzine
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
