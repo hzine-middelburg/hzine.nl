@@ -11,6 +11,6 @@ def catch_all(path):
     try:
         if path.startswith("_"):
             raise TemplateNotFound(path)
-        return f.render_template(f"{path}.html")
+        return f.render_template(f"{path}.html", path=path)
     except TemplateNotFound:
         return f"Not found: {path}", 404

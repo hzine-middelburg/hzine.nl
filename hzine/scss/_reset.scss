@@ -1,0 +1,81 @@
+// SCSS reset by thcrt
+// https://gist.github.com/thcrt/2b8a8d492249a945a307397e120a5dd4 | https://theocourt.com
+// Based on Andy Bell's More Modern CSS Reset | https://andy-bell.co.uk/a-more-modern-css-reset/
+
+$headings: "h1, h2, h3, h4, h5, h6";
+
+*,
+*::before,
+*::after {
+    // Include border and padding in size calculation
+    // See https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing#sect1
+    box-sizing: border-box;
+
+    // Remove default spacing
+    margin: 0;
+    padding: 0;
+
+    // Always inherit fonts
+    font: inherit;
+}
+
+html {
+    // Don't inflate font sizes
+    // See https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+
+    // Make default size a bit bigger
+    font-size: 20px;
+}
+
+body {
+    // Don't let content touch the sides of the page
+    padding: 1rem;
+
+    // Take up available vertical space
+    min-height: 100svh;
+
+    // Hot take: use flex
+    display: flex;
+    flex-direction: column;
+    * {
+        display: flex;
+    }
+}
+
+// Set nice text wrapping and line height
+blockquote, dd, details, figcaption, li, p {
+    text-wrap: pretty;
+    line-height: 1.5;
+}
+#{$headings} {
+    text-wrap: balance;
+    line-height: 1.1;
+}
+
+// Add sane emphasis where indicated by element semantics
+#{$headings}, b, strong {
+    font-weight: bolder;
+}
+i, em {
+    font-style: italic;
+}
+
+// Make figure-like objects easier to work with
+img, picture, figure {
+  max-width: 100%;
+  display: block;
+}
+
+// Enlarge textarea elements for ease of use
+// Excludes cases where rows attribute has been explicitly set
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+// Give some scroll margin to elements that have been anchored to
+:target {
+    scroll-margin-block: 3em;
+}

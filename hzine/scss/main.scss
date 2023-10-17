@@ -1,0 +1,60 @@
+@use "reset";
+@use "sass:string";
+
+// we want to have header/footer "in the margins"
+// so we set a horizontal margin on body
+// and then the header/footer to the same height
+$margin: 2rem;
+
+body {
+    padding: 0;
+    margin: 0 $margin;
+}
+
+main {
+    flex: auto;
+    border: solid 1px;
+    padding: 1rem;
+}
+
+header, footer {
+    height: $margin;
+    justify-content: space-between;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+    * {
+        // vertically center
+        margin: auto 0;
+    }
+
+    nav ul {
+        gap: 1rem;
+
+        li {
+            display: inline-block;
+
+            a {
+                display: inline-block;
+                text-align: center;
+                text-transform: uppercase;
+
+                &.currentPage {
+                    font-weight: lighter;
+
+                    // we create a hidden pseudo-element with the size of a bolded entry
+                    // to maintain size even when it's not bolded
+                    // see https://stackoverflow.com/a/20249560
+                    &::before {
+                        display: block;
+                        content: attr(data-title);
+                        text-transform: uppercase;
+                        font-weight: bolder;
+                        height: 0;
+                        visibility: hidden;
+                    }
+                }
+            }
+        }
+    }
+}
