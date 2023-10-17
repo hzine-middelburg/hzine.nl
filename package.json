@@ -1,5 +1,6 @@
 {
     "dependencies": {
-        "prettier-plugin-jinja-template": "^1.1.0"
+        "prettier-plugin-jinja-template": "^1.1.0",
+        "sass": "^1.69.3"
     }
 }
