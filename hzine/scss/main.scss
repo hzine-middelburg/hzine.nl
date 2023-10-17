@@ -42,8 +42,13 @@ header, footer {
                 text-align: center;
                 text-transform: uppercase;
 
+                color: black;
+                text-decoration:underline 3px;
+
                 &.currentPage {
                     font-weight: lighter;
+                    text-decoration: none;
+                    pointer-events: none;
 
                     // we create a hidden pseudo-element with the size of a bolded entry
                     // to maintain size even when it's not bolded
