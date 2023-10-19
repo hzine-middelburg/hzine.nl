@@ -1,19 +1,6 @@
 @mixin background-noise($color-1, $color-2, $color-3) {
-    background-image:
-        url("/static/noise.svg"),
-        radial-gradient(
-            at bottom left,
-            $color-1,
-            $color-2
-        ),
-        radial-gradient(
-            at top right,
-            $color-2,
-            $color-3
-        ),
-        radial-gradient(
-            at center,
-            $color-1,
-            $color-3
-        );
+  background-image: url("/static/noise.svg"),
+    radial-gradient(at bottom left, $color-1, $color-2),
+    radial-gradient(at top right, $color-2, $color-3),
+    radial-gradient(at center, $color-1, $color-3);
 }
