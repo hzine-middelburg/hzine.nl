@@ -1,0 +1,11 @@
+{% extends"_base.html" %}
+
+{% block content %}
+    <div class="copy">
+        {% block copy %}
+        {% endblock copy %}
+    </div>
+    <div class="accent">
+        {{ self.title() }}
+    </div>
+{% endblock content %}

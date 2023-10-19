@@ -1,52 +1,54 @@
 <!doctype html>
 <html lang="en" hx-boost="true">
 
-<meta charset="utf-8" />
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-/>
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
 
-<script
-    src="https://unpkg.com/htmx.org@1.9.6"
-    integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
-    crossorigin="anonymous">
-</script>
-<link
-    rel="stylesheet"
-    href="/static/build.css"
->
+    <script
+        src="https://unpkg.com/htmx.org@1.9.6"
+        integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+        crossorigin="anonymous">
+    </script>
+    <link
+        rel="stylesheet"
+        href="/static/build.css"
+    >
 
 
-<title>
-    {% block title%}
-    {% endblock title%}
-</title>
+    <title>
+        {% block title%}
+        {% endblock title%}
+    </title>
 
-<header>
-    <h1>
+    <header>
+        <h1>
             HZine
-    </h1>
-    <h2>
-        {{ self.title() }}
-    </h2>
-</header>
+        </h1>
+        <h2>
+            {{ self.title() }}
+        </h2>
+    </header>
 
-<main>
-    {% block content %}
-    {% endblock content %}
-</main>
 
-<footer>
-    <nav>
-        <ul>
-            {% for uri, name in {
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+
+    <footer>
+        <nav>
+            <ul>
+                {% for uri, name in {
                 "/": "Home",
                 "/about": "About",
                 "/archive": "Archive",
                 "/contact": "Contact",
                 "/press": "Press"
-            }.items() %}
+                }.items() %}
                 <li>
                     <a
                         href="{{ uri }}"
@@ -63,7 +65,7 @@
                         {{ name }}
                     </a>
                 </li>
-            {% endfor %}
-        </ul>
-    </nav>
-</footer>
+                {% endfor %}
+            </ul>
+        </nav>
+    </footer>

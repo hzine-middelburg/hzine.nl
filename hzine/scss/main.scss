@@ -6,77 +6,121 @@
 // we want to have header/footer "in the margins"
 // so we set a horizontal margin on body
 // and then the header/footer to the same height
-$margin: 2rem;
+$spacing-external: 2rem;
+
+// the padding inside the main element
+$spacing-internal: 1rem;
 
 body {
-    padding: 0;
-    margin: 0 $margin;
-    font-family: "Aileron", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0 $spacing-external;
+  font-family: "Aileron", Helvetica, Arial, sans-serif;
+  // z-index: 999;
 }
 
 main {
-    flex: auto;
-    border: solid 1px;
-    padding: 1rem;
+  flex: auto;
+  border: solid 1px;
+  padding: $spacing-internal;
 
-    // Use the whole viewport, giving space for top and bottom margins
-    max-height: calc(100svh - calc(2 * $margin));
-    overflow-y: auto;
+  // Use the whole viewport, giving space for top and bottom margins
+  height: calc(100svh - calc(2 * $spacing-external) - $spacing-internal);
+  overflow-y: auto;
+  overflow-x: hidden;
 
-    @include noise.background-noise(
-        hsl(350, 80, 50, 60%),
-        hsl(200, 70, 30, 60%),
-        hsl(150, 60, 50, 60%)
-    );
+  @include noise.background-noise(
+    hsl(350, 80, 50, 60%),
+    hsl(200, 70, 30, 60%),
+    hsl(150, 60, 50, 60%)
+  );
 
-}
+  div.copy {
+    width: 40%;
+    min-width: 12rem;
+    flex-shrink: 0;
+    height: min-content;
 
-header, footer {
-    min-height: $margin;
-    max-height: fit-content;
-    justify-content: space-between;
-    font-weight: bolder;
+    flex-direction: column;
+    gap: 1rem;
+
+    section {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+
+      color: hsl(0, 0, 95%);
+      background-color: hsl(0, 0, 10%, 20%);
+      font-size: 0.9rem;
+    }
+  }
+
+  div.accent {
+    writing-mode: vertical-rl;
     text-transform: uppercase;
 
-    * {
-        // vertically center
-        margin: auto 0;
-    }
+    color: hsl(0, 0, 100%, 10%);
+    font-size: 18rem;
+    font-weight: 900;
 
-    nav ul {
-        column-gap: 1rem;
-        justify-content: space-between;
-        flex-wrap: wrap;
+    height: calc(100svh - calc(2 * $spacing-external) - $spacing-internal);
 
-        li {
-            display: inline-block;
+    overflow-wrap: anywhere;
+    // text-wrap: balance;
 
-            a {
-                display: inline-block;
-                text-align: center;
-                text-transform: uppercase;
+    position: fixed;
+    // z-index: 1;
+    right: 0;
+    pointer-events: none;
+  }
+}
 
-                color: black;
-                text-decoration:underline 3px;
+header,
+footer {
+  min-height: $spacing-external;
+  max-height: fit-content;
+  justify-content: space-between;
+  font-weight: bolder;
+  text-transform: uppercase;
 
-                &.currentPage {
-                    font-weight: lighter;
-                    text-decoration: none;
-                    pointer-events: none;
+  * {
+    // vertically center
+    margin: auto 0;
+  }
 
-                    // we create a hidden pseudo-element with the size of a bolded entry
-                    // to maintain size even when it's not bolded
-                    // see https://stackoverflow.com/a/20249560
-                    &::before {
-                        display: block;
-                        content: attr(data-title);
-                        text-transform: uppercase;
-                        font-weight: bolder;
-                        height: 0;
-                        visibility: hidden;
-                    }
-                }
-            }
+  nav ul {
+    column-gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+
+        color: black;
+        text-decoration: underline 3px;
+
+        &.currentPage {
+          font-weight: lighter;
+          text-decoration: none;
+          pointer-events: none;
+
+          // we create a hidden pseudo-element with the size of a bolded entry
+          // to maintain size even when it's not bolded
+          // see https://stackoverflow.com/a/20249560
+          &::before {
+            display: block;
+            content: attr(data-title);
+            text-transform: uppercase;
+            font-weight: bolder;
+            height: 0;
+            visibility: hidden;
+          }
         }
+      }
     }
+  }
 }
