@@ -15,7 +15,6 @@ body {
   padding: 0;
   margin: 0 $spacing-external;
   font-family: "Aileron", Helvetica, Arial, sans-serif;
-  // z-index: 999;
 }
 
 main {
@@ -65,10 +64,8 @@ main {
     height: calc(100svh - calc(2 * $spacing-external) - $spacing-internal);
 
     overflow-wrap: anywhere;
-    // text-wrap: balance;
 
     position: fixed;
-    // z-index: 1;
     right: 0;
     pointer-events: none;
   }
