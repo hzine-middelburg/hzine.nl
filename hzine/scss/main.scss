@@ -19,6 +19,10 @@ main {
     border: solid 1px;
     padding: 1rem;
 
+    // Use the whole viewport, giving space for top and bottom margins
+    max-height: calc(100svh - calc(2 * $margin));
+    overflow-y: auto;
+
     @include noise.background-noise(
         hsl(350, 80, 50, 60%),
         hsl(200, 70, 30, 60%),
