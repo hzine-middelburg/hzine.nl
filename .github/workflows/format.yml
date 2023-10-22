@@ -1,0 +1,26 @@
+name: format
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-python@v4
+
+      - run: pip install black
+
+      - name: Format Python code
+        id: check_python
+        run: black .
+
+      - name: Commit formatting
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Format Python code with Black"
