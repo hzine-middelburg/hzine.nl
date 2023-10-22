@@ -1,10 +1,10 @@
-{% extends"_copy.html" %}
+{% extends"_base.html" %}
 
-{% block title %}
-  About
-{% endblock title %}
+{% set page_id = "about" %}
+{% set page_type = "copy" %}
+{% set page_title = "About" %}
 
-{% block copy %}
+{% block content %}
   <section>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -39,4 +39,4 @@
       word in classical literature, discovered the undoubtable source.
     </p>
   </section>
-{% endblock copy %}
+{% endblock content %}
