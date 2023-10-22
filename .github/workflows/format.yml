@@ -14,11 +14,18 @@ jobs:
 
       - uses: actions/setup-python@v4
 
-      - run: pip install black
+      - run: pip install black djhtml isort
 
-      - name: Format Python code
-        id: check_python
-        run: black .
+      - name: Format Python code (isort, Black)
+        run: |
+          isort --profile black . 
+          black .
+      
+      - name: Format Jinja2 templates (DjHTML)
+        run: djhtml .
+      
+      - name: Format everything else (Prettier)
+        run: npx prettier . --write
 
       - name: Commit formatting
         uses: stefanzweifel/git-auto-commit-action@v5
