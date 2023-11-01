@@ -1,32 +1,6 @@
-@use "sass:list";
-
-@keyframes move-fuzz {
-    from {
-        background-position-x: 100%;
-        background-position-y: 0;
-    } to {
-        background-position-x: 0;
-        background-position-y: 100%;
-    }
-}
-
 @mixin background-noise($color-1, $color-2, $color-3) {
-    background-image:
-        url("/static/noise.svg"),
-        radial-gradient(
-            at bottom left,
-            $color-1,
-            $color-2
-        ),
-        radial-gradient(
-            at top right,
-            $color-2,
-            $color-3
-        ),
-        radial-gradient(
-            at center,
-            $color-1,
-            $color-3
-        );
-    animation: move-fuzz 0.5s linear infinite;
+  background-image: url("/static/noise.svg"),
+    radial-gradient(at bottom left, $color-1, $color-2),
+    radial-gradient(at top right, $color-2, $color-3),
+    radial-gradient(at center, $color-1, $color-3);
 }

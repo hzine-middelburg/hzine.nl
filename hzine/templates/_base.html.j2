@@ -1,0 +1,79 @@
+{% set navigation = {
+"index":   ("/",        "Home"),
+"about":   ("/about",   "About"),
+"archive": ("/archive", "Archive"),
+"contact": ("/contact", "Contact"),
+"press":   ("/press",   "Press")
+} %}
+{% set page_id = page_id | default(navigation["index"]) %}
+{% set page_type = page_type | default("default") %}
+{% set page_title = page_title | default("HZine") %}
+
+<!doctype html>
+<html lang="en" hx-boost="true">
+
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    />
+
+    <script
+        src="https://unpkg.com/htmx.org@1.9.6"
+        integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+        crossorigin="anonymous">
+    </script>
+    <link
+        rel="stylesheet"
+        href="/static/build.css"
+    >
+
+
+    <title>
+        {{ page_title }}
+    </title>
+
+    <header>
+        <h2>
+            HZine
+        </h2>
+    </header>
+
+    <div class="container" data-page-type="{{ page_type }}">
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        {% if page_type == "copy" %}
+            <h1>
+                {{ page_title }}
+            </h1>
+        {% endif %}
+    </div>
+
+
+    <footer>
+        <nav>
+            <ul>
+                {% for id, entry in navigation.items() %}
+                    {% set uri, title = entry %}
+                    <li>
+                        <a
+                            href="{{ uri }}"
+                            {% if id == page_id %}
+                                {#
+                                    data-title allows pseudo-elements to take the same text content
+                                    this allows spacing to remain consistent
+                                    see https://stackoverflow.com/a/20249560
+                                #}
+                                data-title="{{ title }}"
+                                class="currentPage"
+                            {% endif %}
+                        >
+                            {{ title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </footer>

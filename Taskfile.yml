@@ -1,0 +1,10 @@
+version: "3"
+
+tasks:
+  cleanup: rm ./hzine/static/build.css
+
+  default:
+    cmds:
+      - defer: { task: cleanup }
+      - sass ./hzine/scss/main.scss ./hzine/static/build.css
+      - flask --app hzine run --debug
