@@ -1,10 +1,27 @@
 version: "3"
 
 tasks:
-  cleanup: rm ./hzine/static/build.css
+  cleanup: 
+    internal: true
+    cmds: 
+      - rm ./hzine/static/build.css
 
+  sass: 
+    internal: true
+    cmds: 
+      - sass ./hzine/scss/main.scss ./hzine/static/build.css --watch
+
+  serve-only: flask --app hzine run --debug
+  build-only: sass ./hzine/scss/main.scss ./hzine/static/build.css
+    
+  run:
+    internal: true
+    deps: 
+      - sass
+      - serve-only
+  
   default:
+    aliases: [ build-and-serve ]
     cmds:
       - defer: { task: cleanup }
-      - sass ./hzine/scss/main.scss ./hzine/static/build.css
-      - flask --app hzine run --debug
+      - task: run
