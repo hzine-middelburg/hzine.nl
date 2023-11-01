@@ -39,31 +39,30 @@ body {
     justify-content: space-evenly;
 
     hgroup {
-        flex-direction: inherit;
-        text-align: center;
-        gap: 1rem;
-        color: white;
+      flex-direction: inherit;
+      text-align: center;
+      gap: 1rem;
+      color: white;
 
-        * {
-            display: block;
-        }
+      * {
+        display: block;
+      }
 
-        h2 {
-            font-size: 3.5rem;
-            font-weight: 700;
-        }
+      h2 {
+        font-size: 3.5rem;
+        font-weight: 700;
+      }
 
-        h1 {
-            font-size: 9rem;
-            font-weight: 300;
-        }
+      h1 {
+        font-size: 9rem;
+        font-weight: 300;
+      }
 
-        h3 {
-            font-size: 5rem;
-            font-weight: 900;
-        }
+      h3 {
+        font-size: 5rem;
+        font-weight: 900;
+      }
     }
-    
   }
 
   &[data-page-type="copy"] {
