@@ -67,7 +67,7 @@ body {
 
   &[data-page-type="copy"] {
     main {
-      width: 40%;
+      width: 80%;
       min-width: 12rem;
       flex-shrink: 0;
       height: min-content;
@@ -89,18 +89,14 @@ body {
     h1 {
       writing-mode: vertical-rl;
       text-transform: uppercase;
+      pointer-events: none;
 
       color: hsl(0, 0, 100%, 10%);
-      font-size: 18rem;
+      font-size: 16vh;
       font-weight: 900;
 
-      height: calc(100svh - calc(2 * $spacing-external) - $spacing-internal);
-
-      overflow-wrap: anywhere;
-
       position: fixed;
-      right: 0;
-      pointer-events: none;
+      right: 2rem;
     }
   }
 }
