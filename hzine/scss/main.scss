@@ -27,8 +27,6 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 
-  
-
   @include noise.background-noise(
     hsl(350, 80, 50, 60%),
     hsl(200, 70, 30, 60%),
@@ -103,12 +101,11 @@ body {
           font-family: monospace;
           font-style: normal;
         }
-      
+
         a {
           color: hsl(200, 70%, 70%);
           font-weight: bolder;
         }
-
       }
     }
 
