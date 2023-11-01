@@ -25,6 +25,22 @@ main {
         hsl(150, 60, 50, 60%)
     );
 
+    a {
+        color: lightblue;
+        font-weight: bolder;
+        text-decoration: none;
+    }
+
+    * {
+        display: inline;
+    }
+
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: end;
 }
 
 header, footer {
