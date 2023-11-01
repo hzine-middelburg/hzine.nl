@@ -5,6 +5,7 @@ tasks:
     internal: true
     cmds:
       - rm ./hzine/static/build.css
+      - rm ./hzine/static/build.css.map
 
   sass:
     internal: true
