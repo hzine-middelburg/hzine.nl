@@ -27,6 +27,8 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 
+  
+
   @include noise.background-noise(
     hsl(350, 80, 50, 60%),
     hsl(200, 70, 30, 60%),
@@ -89,6 +91,24 @@ body {
         color: hsl(0, 0, 95%);
         background-color: hsl(0, 0, 10%, 20%);
         font-size: 0.9rem;
+
+        p {
+          display: block;
+          * {
+            display: inline;
+          }
+        }
+
+        i.email {
+          font-family: monospace;
+          font-style: normal;
+        }
+      
+        a {
+          color: hsl(200, 70%, 70%);
+          font-weight: bolder;
+        }
+
       }
     }
 

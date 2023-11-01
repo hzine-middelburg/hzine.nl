@@ -1,9 +1,9 @@
 {% set navigation = {
-"index":   ("/",        "Home"),
-"about":   ("/about",   "About"),
-"archive": ("/archive", "Archive"),
-"contact": ("/contact", "Contact"),
-"press":   ("/press",   "Press")
+    "index":   ("/",        "Home"),
+    "about":   ("/about",   "About"),
+    "archive": ("/archive", "Archive"),
+    "contact": ("/contact", "Contact"),
+    "donate": ("/donate", "Donate")
 } %}
 {% set page_id = page_id | default(navigation["index"]) %}
 {% set page_type = page_type | default("default") %}
