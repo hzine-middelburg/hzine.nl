@@ -36,12 +36,18 @@ body {
   &[data-page-type="home"] main {
     width: 100%;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 3vmax;
+
+    img {
+      height: 20vmax;
+      margin: 0 auto;
+    }
 
     hgroup {
       flex-direction: inherit;
       text-align: center;
-      gap: 1rem;
+      gap: 1vmax;
       color: white;
 
       * {
@@ -49,17 +55,17 @@ body {
       }
 
       h2 {
-        font-size: 3.5vmax;
+        font-size: 1.75vmax;
         font-weight: 700;
       }
 
       h1 {
-        font-size: 9vmax;
+        font-size: 4.5vmax;
         font-weight: 300;
       }
 
       h3 {
-        font-size: 5vmax;
+        font-size: 2.5vmax;
         font-weight: 900;
       }
     }
